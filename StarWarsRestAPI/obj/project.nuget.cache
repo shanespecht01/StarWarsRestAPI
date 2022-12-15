@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "w7prFpCUyk+s7WZzGcsM608apKU6wuiDC3JL88PqPGw/me9+M4A6LrTzdYd3u8OemTpgqygRbnpVE/mY/tPmuw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\shanespecht\\OneDrive - Doosan\\Desktop\\School\\starwars\\StarWarsRestAPI\\StarWarsRestAPI\\StarWarsRestAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shanespecht\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
+  ],
+  "logs": []
+}
