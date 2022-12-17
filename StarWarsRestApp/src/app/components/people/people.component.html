@@ -4,49 +4,111 @@
         <!-- <a class="btn btn-success" routerLink="createinvoice">Get Stuff</a> -->
     </div>
     <div class="card-body">
-        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" *ngIf="results?.length != 0" class="table table-striped table-hover row-border hover">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Height</th>
-                    <th>Mass</th>
-                    <th>Hair Color</th>
-                    <th>Skin Color</th>
-                    <th>Eye Color</th>
-                    <th>Birth Year</th>
-                    <th>Gender</th>
-                </tr>
-            </thead>
-            <thead>
-                <tr>
-                    <th><input type="text" placeholder="Search Name" name="search-name"/></th>
-                    <th><input type="text" placeholder="Search Height" name="search-height"/></th>
-                    <th><input type="text" placeholder="Search Mass" name="search-mass"/></th>
-                    <th><input type="text" placeholder="Search Hair Color" name="search-hair-color"/></th>
-                    <th><input type="text" placeholder="Search Skin Color" name="search-skin-color"/></th>
-                    <th><input type="text" placeholder="Search Eye Color" name="search-eye-color"/></th>
-                    <th><input type="text" placeholder="Search Birth Year" name="search-birth-year"/></th>
-                    <th><input type="text" placeholder="Search Gender" name="search-gender"/></th>
-                </tr>
-            </thead>
-            <tbody *ngIf="results?.length != 0">
-                <tr *ngFor="let result of results">
-                    <td>{{ result.name }}</td>
-                    <td>{{ result.height }}</td>
-                    <td>{{ result.mass }}</td>
-                    <td>{{ result.hair_color }}</td>
-                    <td>{{ result.skin_color }}</td>
-                    <td>{{ result.eye_color }}</td>
-                    <td>{{ result.birth_year }}</td>
-                    <td>{{ result.gender }}</td>
-                </tr>
-            </tbody>
-            <tbody *ngIf="results?.length == 0">
-                <tr>
-                  <td colspan="8" class="no-data-available">No data!</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+
+        <div class="mat-elevation-z8">
+
+            <mat-form-field>
+              <mat-label>Filter</mat-label>
+              <input matInput placeholder="Filter" (keyup)="Filterchange($event)">
+            </mat-form-field>
+        
+          <table mat-table matSort [dataSource]="dataSource" >
+        
+            <ng-container matColumnDef="first_name">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name|split:false}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="last_name">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name|split:true}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="height">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef> Height </th>
+                <td mat-cell *matCellDef="let element"> {{element.height}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="mass">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef> Mass </th>
+                <td mat-cell *matCellDef="let element"> {{element.mass}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="hair_color">
+                <th mat-header-cell *matHeaderCellDef> Hair Color </th>
+                <td mat-cell *matCellDef="let element"> {{element.hair_color}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="skin_color">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Skin Color </th>
+                <td mat-cell *matCellDef="let element"> {{element.skin_color}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="eye_color">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef> Eye Color </th>
+                <td mat-cell *matCellDef="let element"> {{element.eye_color}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="birth_year">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef> Birth Year </th>
+                <td mat-cell *matCellDef="let element"> {{element.birth_year}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef> Gender </th>
+                <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="homeworld">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Code </th>
+                <td mat-cell *matCellDef="let element"> {{element.homeworld}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="species">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.species}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="films">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.films}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="vehicles">
+                <th mat-header-cell *matHeaderCellDef> phone </th>
+                <td mat-cell *matCellDef="let element"> {{element.vehicles}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="starships">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Code </th>
+                <td mat-cell *matCellDef="let element"> {{element.starships}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="created">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.created}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="edited">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.edited}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="url">
+                <th mat-header-cell *matHeaderCellDef> phone </th>
+                <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        
+          <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons>
+        
+          </mat-paginator>
+          
+        </div>
+
+        
 </div>
 
