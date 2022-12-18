@@ -62,7 +62,13 @@ export class PeopleComponent implements OnInit, OnDestroy, AfterViewInit {
   getAllPeople() {
     const table = of(this.SwapiService.getAllPeople());
     table.subscribe(result => {
-      this.peopledata = result;
+      const uniqueArray = result.filter((value, index) => {
+        const _value = JSON.stringify(value);
+        return index === result.findIndex(obj => {
+          return JSON.stringify(obj) === _value;
+        });
+      });
+      this.peopledata = uniqueArray;
       this.dataSource = new MatTableDataSource<People>(this.peopledata)
     });
   }
