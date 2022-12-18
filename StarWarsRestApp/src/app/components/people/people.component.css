@@ -1,3 +1,20 @@
 table {
-    width: 100%;
-  }
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 50%;
+}
+
+.mat-column-position {
+  max-width: 100px;
+}
+
+.mat-column-name {
+  max-width: 100px;
+}
+
+.margin {
+  margin: 16px;
+}

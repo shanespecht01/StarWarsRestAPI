@@ -5,6 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { DataTablesModule } from "angular-datatables";
 import { AppRoutingModule } from './app-routing.module';
 import { PeopleComponent } from './components/people/people.component';
+import { FilmsComponent } from './components/films/films.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule} from '@angular/material/sidenav';
@@ -21,12 +22,15 @@ import { MatSelectModule } from "@angular/material/select"
 import { MatRadioModule } from "@angular/material/radio"
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { SplitPipe } from './split.pipe'
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableFilterModule } from 'mat-table-filter';
 
 @NgModule({
   declarations: [
     PeopleComponent,
     AppComponent,
-    SplitPipe
+    SplitPipe,
+    FilmsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,9 @@ import { SplitPipe } from './split.pipe'
     MatDialogModule,
     MatSelectModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    MatTableFilterModule
   ],
   exports: [
     SplitPipe
